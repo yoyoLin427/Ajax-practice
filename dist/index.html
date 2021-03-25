@@ -8,64 +8,12 @@
     
     <button id="btn_listALL" type="submit">list all students</button>
     <div id="listALL-output"></div>
-
-
-    <form action="./step5" method="get">
-      first name: <input type="text" name="fname"><br>
-      last name: <input type="text" name="lname"><br>
-      <button type="submit">submit via get</button>
+    
+    <form id="search-form">
+        student ID: <input type="text" name="stuID"><br>
+        <button type="submit">search specific student</button>
     </form>
-
-    <!-- Step 7 code goes here -->
-    <!-- Step 7:
-    * edit [field name]s to appropriate values
-    * the biggest difference to the last step is `method="post"`
-    * open `[host]:[port]/exercise.html` in a browser, fill the form, click the submit button and see the result
-    * notice the url
-    * try reload the page
-    * 將 [file name] 修改成合適的值
-    * 跟前一步驟最大的不同就是 `method="post"`
-    * 用瀏覽器打開 `[host]:[port]/exercise.html`，填好表單，按下送出按鈕看結果
-    * 注意網址
-    * 試著重新整理網頁
-    -->
-    <form action="./step7" method="post">
-      first name: <input type="text" name="fname"><br>
-      last name: <input type="text" name="lname"><br>
-      <button type="submit">submit via post</button>
-    </form>
-
-    <!-- Step 8 code goes here -->
-    <!-- Step 8:
-    * insert this code snippet to `./dist/exercise.html`
-    * set form `id` to help jquery selection
-    * `type="submit"` is not necessary, see the step 8 instructions in `./dist/exercise.js`
-    * open `[host]:[port]/exercise.html` in a browser and open the network tab of the developer console
-    * click the ajax submit button and see the request
-    * notice the url
-    * 將這個程式碼片段插入 `./dist/exercise.html`
-    * 設定 form 的 id 讓 jquery 的選取
-    * `type="submit"` 不是必須的，查看 `./dist/exercise.js` 在第八步的指示
-    * 在瀏覽器中開啟 `[host]:[port]/exercise.html` 以及開發者工具
-    * 點擊 ajax 提交按鈕並查看 request 並注意網址
-    -->
-    <form id="ajax-form">
-      first name: <input type="text" name="fname"><br>
-      last name: <input type="text" name="lname"><br>
-      <button type="submit">submit via ajax</button>
-    </form>
-
-    <!-- Step 10 code goes here -->
-    <!-- Step 10:
-    * insert this code snippet to `./dist/exercise.html`
-    * this div is used to display the result
-    * give it an id, `ajax-output`, to help jquery seleciton
-    * 將這段程式碼插入 `./dist/exercise.html`
-    * 這個 div 是用來顯示結果的
-    * 給他一個 id , `ajax-output`, 讓 jquery 可以選到他
-    -->
-    <div id="ajax-output"></div>
-
+    <div id="search-output"></div>
     
     <script src="./main.js"></script>
   </body>

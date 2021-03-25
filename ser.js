@@ -51,10 +51,53 @@ app.post('/list_all_students', (req, res) => {
     var list = JSON.parse(data);
     var str_list = '';
     for (var stu in list) {
-      console.log(stu + 'student:' + list[stu]);
+      //console.log(stu + 'student:' + list[stu]);
       str_list = str_list + JSON.stringify(stu) + ':' + JSON.stringify(list[stu]) + '</br>'
     }
     res.send(str_list);
+  });
+  
+})
+
+
+
+// include `body-parser`
+// 載入 `body-parser`
+const bodyParser = require('body-parser')
+
+// setup `body-parser`
+// 設定 `body-parser`
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.post('/search', (req, res) => {
+
+  /*
+  $.getJSON(url,[data],[callback])
+  url：載入的頁面地址
+  data: 可選項，傳送到伺服器的資料，格式是key/value
+  callback:可選項，載入成功後執行的回撥函式
+  */ 
+  fs.readFile('students.sample.json', function(err, data){
+    if (err) {
+      return console.error(err);
+    }
+    
+
+    //將JSON格式轉回物件
+    var list = JSON.parse(data);
+    var ans = 'can not find';
+    for (var stu in list) {
+      if(req.body.stuID == stu)
+      {
+        console.log('success find');
+        ans = 'Hello,'+JSON.stringify(list[stu]);
+      }
+    }
+
+    
+    console.log('要找',req.body.stuID);
+    res.send(ans);
   });
   
 })
